@@ -1,2 +1,99 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzdHlsZS5jc3MifQ== */
+html {
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  background-image: linear-gradient(to bottom, #833ab4, #fd1d1d, #fcb045);
+}
+
+.game {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 90vh;
+  background-color: #f7f7f7;
+  border-radius: 2.5rem;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: inset -1.5rem -1.5rem 2rem rgba(0, 0, 0, 0.32), inset 1.5rem 1.5rem 2rem rgba(0, 0, 0, 0.32);
+}
+
+.game__title-box {
+  align-self: stretch;
+  flex-basis: 15%;
+  display: flex;
+}
+
+.game__title {
+  margin: auto;
+  font-size: 6rem;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 5px;
+  font-weight: 700;
+  background: -webkit-linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.game__select-option-text-box {
+  flex-basis: 5%;
+}
+
+.game__select-option-title {
+  background-color: #6C757D;
+}
+
+.game__option-box {
+  display: flex;
+  justify-content: space-between;
+  max-width: 114rem;
+  margin: 0 auto;
+}
+
+.game__select-option {
+  flex-basis: 30%;
+  background-color: #6C757D;
+  padding: .8rem;
+  border-radius: 2rem;
+}
+
+.game__select-option-img {
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
+  -o-object-fit: fill;
+     object-fit: fill;
+  background-color: #dfdfdf;
+}
+
+.game__btn-start {
+  width: 20rem;
+  height: 6.5rem;
+  border: none;
+  border-radius: 3.25rem;
+  background-color: #833ab4;
+  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: 1.2px;
+  color: #fff;
+  outline: none;
+}
+
+.game__display-box {
+  flex-basis: 25%;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3Nhc3MvbWFpbi5zY3NzIiwic3R5bGUuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQXlCQTs7O0VBR0ksU0FBUztFQUNULFVBQVU7RUFDVixzQkFBc0I7QUN4QjFCOztBRDRCQTtFQUNJLGdCQUFnQjtFQUNoQixpQ0FBaUM7QUN6QnJDOztBRDRCQTtFQUNJLGFBQWE7RUFDYixhQUFhO0VBQ2IsdUVBQStGO0FDekJuRzs7QUQ2QkE7RUFDSSxZQUFZO0VBQ1osYUFBYTtFQUNiLHNCQUFzQjtFQUN0QixVQUFVO0VBQ1YsWUFBWTtFQUNaLHlCQWpDd0I7RUFrQ3hCLHFCQUFxQjtFQUNyQiw4QkFBOEI7RUFDOUIsbUJBQW1CO0VBQ25CLHdHQW5DYztBQ1NsQjs7QUQ0Qkk7RUFDSSxtQkFBbUI7RUFDbkIsZUFBZTtFQUNmLGFBQWE7QUN6QnJCOztBRDRCSTtFQUNJLFlBQVk7RUFDWixlQUFlO0VBQ2YseUJBQXlCO0VBQ3pCLGtCQUFrQjtFQUNsQixtQkFBbUI7RUFDbkIsZ0JBQWdCO0VBQ2hCLHFFQUE2RjtFQUM3Riw2QkFBNkI7RUFDN0Isb0NBQW9DO0FDekI1Qzs7QUQ0Qkk7RUFDSSxjQUFjO0FDekJ0Qjs7QUQ0Qkk7RUFDSSx5QkFoRWlCO0FDdUN6Qjs7QUQ0Qkk7RUFDSSxhQUFhO0VBQ2IsOEJBQThCO0VBQzlCLGlCQUFpQjtFQUNqQixjQUFjO0FDekJ0Qjs7QUQ0Qkk7RUFDSSxlQUFlO0VBQ2YseUJBNUVpQjtFQTZFakIsY0FBYztFQUNkLG1CQUFtQjtBQ3pCM0I7O0FENEJJO0VBQ0ksYUFBYTtFQUNiLFdBQVc7RUFDWCxZQUFZO0VBQ1osbUJBQW1CO0VBQ25CLG1CQUFnQjtLQUFoQixnQkFBZ0I7RUFDaEIseUJBdEZvQjtBQzZENUI7O0FEOEJJO0VBQ0ksWUFBWTtFQUNaLGNBQWM7RUFDZCxZQUFZO0VBQ1osc0JBQXNCO0VBQ3RCLHlCQXRHZTtFQXVHZix5QkFBeUI7RUFDekIsZUFBZTtFQUNmLHFCQUFxQjtFQUNyQixXQWhHVTtFQWlHVixhQUFhO0FDM0JyQjs7QUQ4Qkk7RUFDSSxlQUFlO0FDM0J2QiIsImZpbGUiOiJzdHlsZS5jc3MifQ== */
