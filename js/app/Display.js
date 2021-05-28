@@ -38,21 +38,21 @@ class Display {
             draw++;
             this.stats.draw = draw;
             this.draw.textContent = `Draw: ${draw}`;
-            this.result.textContent = `Result: You chose ${result.player} | Computer chose ${result.computer} | Draw!`;
+            this.result.innerHTML = `Result: You chose ${result.player} | Computer chose ${result.computer} | <span class="draw">Draw!</span>`;
         }
         if(elements.id == 'wins') {
             let wins = statistics;
             wins++;
             this.stats.wins = wins;
             this.wins.textContent = `Wins: ${wins}`;
-            this.result.textContent = `Result: You chose ${result.player} | Computer chose ${result.computer} | You win!`;
+            this.result.innerHTML = `Result: You chose ${result.player} | Computer chose ${result.computer} | <span class="win">You win!</span>`;
         }
         if(elements.id == 'loses') {
             let loses = statistics;
             loses++;
             this.stats.loses = loses;
             this.loses.textContent = `Loses: ${loses}`;
-            this.result.textContent = `Result: You chose ${result.player} | Computer chose ${result.computer} | You Lose!`;
+            this.result.innerHTML = `Result: You chose ${result.player} | Computer chose ${result.computer} | <span class="lose">You Lose!</span>`;
         }
     }
 }

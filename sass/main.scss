@@ -1,6 +1,8 @@
 //*VARAIBLES
 $color-primary: #833ab4;
 $color-secondary: #fd1d1d;
+$color-tertiary: #38ef7d;
+$color-quaternary: #009FFF;
 
 $color-grey-dark: #6C757D;
 $color-grey-light-1: #dfdfdf;
@@ -63,6 +65,20 @@ body {
     }
 
 }
+
+// * SPAN COLOR
+.lose {
+    color: $color-secondary;
+}
+
+.win {
+    color: $color-tertiary;
+}
+
+.draw {
+    color: $color-quaternary;
+}
+
 
 // * GAME
 .game {
