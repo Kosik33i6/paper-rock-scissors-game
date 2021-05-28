@@ -13,10 +13,6 @@ class Game {
         const {gamesNumber, draw, wins, loses} = this.display.stats;
         const {gamesNumber: gamesNumberTextContent, draw: drawTextContent, wins: winsTextContent, loses: losesTextContent} = this.display;
 
-        // this.display.gamesNumber.textContent = `Number of games: ${gamesNumber}`;
-        // this.display.draw.textContent = `Draw: ${this.display.stats.draw}`;
-        // this.display.wins.textContent = `Wins: ${this.display.stats.wins}`;
-        // this.display.loses.textContent = `Loses: ${this.display.stats.loses}`;
         this.display.updateStatistic([gamesNumberTextContent, drawTextContent, winsTextContent, losesTextContent], [gamesNumber, draw, wins, loses]);
     }
     startGame() {
