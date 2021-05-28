@@ -9,6 +9,27 @@ $color-grey-light-2: #f7f7f7;
 $color-black: #000;
 $color-white: #fff;
 
+// * MIXINS
+@mixin breakpoint($size) {
+    @if $size==big {
+        @media only screen and (max-width: 1200px) {
+            @content;
+        }
+    }
+
+    @else if $size==medium-land {
+        @media (orientation: landscape) and (max-width: 900px) {
+            @content;
+        }
+    }
+
+    @else if $size==small {
+        @media only screen and (max-width: 600px) {
+            @content;
+        }
+    }
+}
+
 // * RESET
 *,
 *::before,
@@ -22,12 +43,25 @@ $color-white: #fff;
 html {
     font-size: 62.5%;
     font-family: 'Roboto', sans-serif;
+
+    @include breakpoint(medium-land) {
+        font-size: 56.25%;
+    }
+
+    @include breakpoint(small) {
+        font-size: 50%;
+    }
 }
 
 body {
     display: flex;
     height: 100vh;
     background-image: linear-gradient(to bottom, $color-primary, $color-secondary);
+
+    @include breakpoint(small) {
+        height: auto;
+    }
+
 }
 
 // * GAME
@@ -42,6 +76,26 @@ body {
     justify-content: space-between;
     align-items: center;
     box-shadow: inset -1.5rem -1.5rem 2rem rgba($color-black, .32), inset 1.5rem 1.5rem 2rem rgba($color-black, .32);
+
+    @include breakpoint(big) {
+        box-shadow: none;
+        width: 98%;
+        height: 98vh;
+    }
+
+    @include breakpoint(medium-land) {
+        width: 100%;
+        height: 200vh;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    @include breakpoint(small) {
+        width: 100%;
+        height: 100vh;
+        padding: 1rem 0;
+        border-radius: 0;
+    }
 
     &__title-box {
         align-self: stretch;
@@ -59,6 +113,18 @@ body {
         background: -webkit-linear-gradient(45deg, $color-primary, $color-secondary);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+
+        @include breakpoint(big) {
+            font-size: 5rem;
+        }
+
+        @include breakpoint(medium-land) {
+            font-size: 4rem;
+        }
+
+        @include breakpoint(small) {
+            font-size: 2.7rem;
+        }
     }
 
     &__select-option-text-box {
@@ -68,6 +134,11 @@ body {
     &__select-option-title {
         font-size: 3rem;
         color: $color-grey-dark;
+        text-transform: uppercase;
+
+        @include breakpoint(medium-land) {
+            font-size: 2.5rem;
+        }
     }
 
     &__option-box {
@@ -76,6 +147,19 @@ body {
         max-width: 114rem;
         height: 30rem;
         margin: 0 auto;
+
+        @include breakpoint(big) {
+            padding: 0 .5rem;
+            height: 25rem;
+        }
+
+        @include breakpoint(medium-land) {
+            height: 25rem;
+        }
+
+        @include breakpoint(small) {
+            height: 17rem;
+        }
     }
 
     &__select-option {
@@ -109,6 +193,13 @@ body {
         outline: none;
         transition: all .3s ease;
 
+        @include breakpoint(small) {
+            width: 15rem;
+            height: 5rem;
+            border-radius: 2.5rem;
+            font-size: 1.6rem;
+        }
+
         &:hover {
             background-color: $color-secondary;
             box-shadow: 0 1rem 2rem rgba($color-black, .3);
@@ -123,11 +214,13 @@ body {
 
     &__display-box {
         flex-basis: 25%;
-        align-self: flex-start;
-        padding-left: 10rem;
+        align-self: stretch;
+        // padding-left: 10rem;
     }
 
     &__display {
+        width: 80%;
+        margin: 0 auto;
         color: $color-grey-dark;
     }
 
@@ -137,6 +230,19 @@ body {
 
     &__result {
         font-size: 3rem;
+        text-align: center;
+
+        @include breakpoint(big) {
+            font-size: 2.2rem;
+        }
+
+        @include breakpoint(medium-land) {
+            font-size: 2rem;
+        }
+
+        @include breakpoint(small) {
+            font-size: 1.8rem;
+        }
     }
 
     &__statiscits-box {}
@@ -144,10 +250,14 @@ body {
     &__statiscits-title {
         font-size: 2.3rem;
         margin-bottom: 1rem;
+
+        @include breakpoint(small) {
+            font-size: 1.7rem;
+        }
     }
 
     &__statistic {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
 
 }
