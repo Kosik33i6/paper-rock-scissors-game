@@ -178,8 +178,6 @@ body {
         background-color: $color-grey-light-1;
     }
 
-    &__btn-start-box {}
-
     &__btn-start {
         width: 20rem;
         height: 6.5rem;
@@ -215,7 +213,6 @@ body {
     &__display-box {
         flex-basis: 25%;
         align-self: stretch;
-        // padding-left: 10rem;
     }
 
     &__display {
@@ -244,8 +241,6 @@ body {
             font-size: 1.8rem;
         }
     }
-
-    &__statiscits-box {}
 
     &__statiscits-title {
         font-size: 2.3rem;
