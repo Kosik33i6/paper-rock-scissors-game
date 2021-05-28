@@ -9,7 +9,10 @@ class Game {
     init() {
         this.btnStartGame.addEventListener('click', () => this.startGame());
         this.gameChoise.playerChoise();
-
+        this.display.gamesNumber.textContent = `Number of games: ${this.display.stats.gamesNumber}`;
+        this.display.draw.textContent = `Draw: ${this.display.stats.draw}`;
+        this.display.wins.textContent = `Wins: ${this.display.stats.wins}`;
+        this.display.loses.textContent = `Loses: ${this.display.stats.loses}`;
     }
     startGame() {
         this.gameChoise.computerChoise();
@@ -18,12 +21,15 @@ class Game {
             return alert('Select paper, rock or scissors');
         }
 
+        this.display.stats.gamesNumber++;
+        this.display.gamesNumber.textContent = `Number of games: ${this.display.stats.gamesNumber}`;
+
         const {playerChoise, computerChoise} = this.gameChoise.choice;
 
         if(playerChoise === computerChoise) {
             this.display.stats.draw++;
             this.display.draw.textContent = `Draw: ${this.display.stats.draw}`;
-            this.display.result.textContent = `Result: You chose ${playerChoise} | Computer chose ${computerChoise}| Draw!`;
+            this.display.result.textContent = `Result: You chose ${playerChoise} | Computer chose ${computerChoise} | Draw!`;
             return;
         }
         if(playerChoise == 'paper' && computerChoise == 'rock' || playerChoise == 'rock' && computerChoise == 'scissors' || playerChoise == 'scissors' && computerChoise == 'paper') {

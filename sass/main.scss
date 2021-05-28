@@ -1,19 +1,6 @@
 //*VARAIBLES
-// $color-primary-light: #A98EDA;
-// $color-primary-medium: #59359A;
-// $color-primary-dark: #8BC5F4;
-
-// $color-secondary-light: #4DD4AC;
-// $color-secondary-medium: #20C975;
-// $color-secondary-dark: #13795B;
-// $color-tertiary-light: #E35D6A;
-// $color-tertiary-medium: #B02A37;
-// $color-tertiary-dark: #842029;
-
 $color-primary: #833ab4;
 $color-secondary: #fd1d1d;
-$color-tertiary: #fcb045;
-$color-quaternary: #fdeff9;
 
 $color-grey-dark: #6C757D;
 $color-grey-light-1: #dfdfdf;
@@ -40,7 +27,7 @@ html {
 body {
     display: flex;
     height: 100vh;
-    background-image: linear-gradient(to bottom, $color-primary, $color-secondary, $color-tertiary);
+    background-image: linear-gradient(to bottom, $color-primary, $color-secondary);
 }
 
 // * GAME
@@ -69,7 +56,7 @@ body {
         text-align: center;
         letter-spacing: 5px;
         font-weight: 700;
-        background: -webkit-linear-gradient(45deg, $color-primary, $color-secondary, $color-tertiary);
+        background: -webkit-linear-gradient(45deg, $color-primary, $color-secondary);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -79,7 +66,8 @@ body {
     }
 
     &__select-option-title {
-        background-color: $color-grey-dark;
+        font-size: 3rem;
+        color: $color-grey-dark;
     }
 
     &__option-box {
@@ -119,22 +107,47 @@ body {
         letter-spacing: 1.2px;
         color: $color-white;
         outline: none;
+        transition: all .3s ease;
+
+        &:hover {
+            background-color: $color-secondary;
+            box-shadow: 0 1rem 2rem rgba($color-black, .3);
+            transform: translateY(-5px);
+        }
+
+        &:active {
+            box-shadow: 0 .5rem 1rem rgba($color-black, .3);
+            transform: translateY(-2px);
+        }
     }
 
     &__display-box {
         flex-basis: 25%;
+        align-self: flex-start;
+        padding-left: 10rem;
     }
 
-    &__display {}
+    &__display {
+        color: $color-grey-dark;
+    }
 
-    &__result-box {}
+    &__result-box {
+        margin-bottom: 2.5rem;
+    }
 
-    &__result {}
+    &__result {
+        font-size: 3rem;
+    }
 
     &__statiscits-box {}
 
-    &__statiscits-title {}
+    &__statiscits-title {
+        font-size: 2.3rem;
+        margin-bottom: 1rem;
+    }
 
-    &__statiscit {}
+    &__statistic {
+        font-size: 2rem;
+    }
 
 }
