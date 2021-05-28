@@ -9,37 +9,33 @@ class Game {
     init() {
         this.btnStartGame.addEventListener('click', () => this.startGame());
         this.gameChoise.playerChoise();
-        this.display.gamesNumber.textContent = `Number of games: ${this.display.stats.gamesNumber}`;
-        this.display.draw.textContent = `Draw: ${this.display.stats.draw}`;
-        this.display.wins.textContent = `Wins: ${this.display.stats.wins}`;
-        this.display.loses.textContent = `Loses: ${this.display.stats.loses}`;
+
+        const {gamesNumber, draw, wins, loses} = this.display.stats;
+        const {gamesNumber: gamesNumberTextContent, draw: drawTextContent, wins: winsTextContent, loses: losesTextContent} = this.display;
+
+        // this.display.gamesNumber.textContent = `Number of games: ${gamesNumber}`;
+        // this.display.draw.textContent = `Draw: ${this.display.stats.draw}`;
+        // this.display.wins.textContent = `Wins: ${this.display.stats.wins}`;
+        // this.display.loses.textContent = `Loses: ${this.display.stats.loses}`;
+        this.display.updateStatistic([gamesNumberTextContent, drawTextContent, winsTextContent, losesTextContent], [gamesNumber, draw, wins, loses]);
     }
     startGame() {
         this.gameChoise.computerChoise();
 
-        if(!this.gameChoise.choice.playerChoise) {
+        const {playerChoise, computerChoise} = this.gameChoise.choice;
+        if(!playerChoise) {
             return alert('Select paper, rock or scissors');
         }
-
-        this.display.stats.gamesNumber++;
-        this.display.gamesNumber.textContent = `Number of games: ${this.display.stats.gamesNumber}`;
-
-        const {playerChoise, computerChoise} = this.gameChoise.choice;
+        this.display.updateStatistic(this.display.gamesNumber, this.display.stats.gamesNumber);
 
         if(playerChoise === computerChoise) {
-            this.display.stats.draw++;
-            this.display.draw.textContent = `Draw: ${this.display.stats.draw}`;
-            this.display.result.textContent = `Result: You chose ${playerChoise} | Computer chose ${computerChoise} | Draw!`;
+            this.display.updateStatistic(this.display.draw, this.display.stats.draw, {player: playerChoise, computer: computerChoise});
             return;
         }
         if(playerChoise == 'paper' && computerChoise == 'rock' || playerChoise == 'rock' && computerChoise == 'scissors' || playerChoise == 'scissors' && computerChoise == 'paper') {
-            this.display.stats.wins++;
-            this.display.wins.textContent = `Wins: ${this.display.stats.wins}`;
-            this.display.result.textContent = `Result: You chose ${playerChoise} | Computer chose ${computerChoise} | You win!`;
+            this.display.updateStatistic(this.display.wins, this.display.stats.wins, {player: playerChoise, computer: computerChoise});
         } else {
-            this.display.stats.loses++;
-            this.display.loses.textContent = `Loses: ${this.display.stats.loses}`;
-            this.display.result.textContent = `Result: You chose ${playerChoise} | Computer chose ${computerChoise} | You Lose!`;
+            this.display.updateStatistic(this.display.loses, this.display.stats.loses, {player: playerChoise, computer: computerChoise});
         }
     }
 }
