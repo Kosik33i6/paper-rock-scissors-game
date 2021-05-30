@@ -10,10 +10,10 @@ class Game {
         this.btnStartGame.addEventListener('click', () => this.startGame());
         this.gameChoise.playerChoise();
 
-        const {numberOfGames: gamesNumber, draw, wins, loses} = this.display.stats;
-        const {gamesNumber: gamesNumberTextContent, draw: drawTextContent, wins: winsTextContent, loses: losesTextContent} = this.display;
+        const {numberOfGames, draw, win, lose} = this.display.stats;
+        const {gamesNumber: gamesNumberTextContent, draws: drawTextContent, wins: winsTextContent, loses: losesTextContent} = this.display;
 
-        this.display.updateStatistic([gamesNumberTextContent, drawTextContent, winsTextContent, losesTextContent], [gamesNumber, draw, wins, loses]);
+        this.display.updateStatistic([gamesNumberTextContent, drawTextContent, winsTextContent, losesTextContent], [numberOfGames, draw, win, lose]);
     }
     startGame() {
         this.gameChoise.computerChoise();
@@ -26,13 +26,13 @@ class Game {
         this.display.updateStatistic(this.display.gamesNumber, this.display.stats.numberOfGames);
 
         if(playerChoise === computerChoise) {
-            this.display.updateStatistic(this.display.draw, this.display.stats.draw, {player: playerChoise, computer: computerChoise});
+            this.display.updateStatistic(this.display.draws, this.display.stats.draw, {player: playerChoise, computer: computerChoise});
             return;
         }
         if(playerChoise == 'paper' && computerChoise == 'rock' || playerChoise == 'rock' && computerChoise == 'scissors' || playerChoise == 'scissors' && computerChoise == 'paper') {
-            this.display.updateStatistic(this.display.wins, this.display.stats.wins, {player: playerChoise, computer: computerChoise});
+            this.display.updateStatistic(this.display.wins, this.display.stats.win, {player: playerChoise, computer: computerChoise});
         } else {
-            this.display.updateStatistic(this.display.loses, this.display.stats.loses, {player: playerChoise, computer: computerChoise});
+            this.display.updateStatistic(this.display.loses, this.display.stats.lose, {player: playerChoise, computer: computerChoise});
         }
     }
 }

@@ -2,13 +2,13 @@ class Display {
     constructor() {
         this.result = document.getElementById('result');
         this.gamesNumber = document.getElementById('number-of-games');
-        this.wins = document.getElementById('wins');
-        this.loses = document.getElementById('loses');
-        this.draw = document.getElementById('draw');
+        this.wins = document.getElementById('win');
+        this.loses = document.getElementById('lose');
+        this.draws = document.getElementById('draw');
         this.stats = {
             numberOfGames: 0,
-            wins: 0,
-            loses: 0,
+            win: 0,
+            lose: 0,
             draw: 0,
         }
     }
@@ -20,12 +20,13 @@ class Display {
     // }
 
     updateStatsText(element, statistics, index) {
-        const regExpSpecialSigns = /(-)/g;
+        const regExpHyphen = /(-)/g;
+        console.log(element);
         let elementAttribute = element.getAttribute('id');
         elementAttribute = elementAttribute.charAt(0).toUpperCase() + elementAttribute.slice(1);
 
-        if(regExpSpecialSigns.test(elementAttribute)) {
-                elementAttribute = elementAttribute.replace(regExpSpecialSigns, ' ');
+        if(regExpHyphen.test(elementAttribute)) {
+                elementAttribute = elementAttribute.replace(regExpHyphen, ' ');
             }
 
         if(Array.isArray(statistics) && index !== undefined) {
@@ -41,44 +42,24 @@ class Display {
             elements.forEach((element, index) => {
                 this.updateStatsText(element, statistics, index);
            });
-        }
+        } else {
+            const regExpSignAndLetterAfter = /(-=?)[a-z]/g;
+            const regExpHyphen = /(-)/g;
 
-        // const regExpLetterAfterSign =
+            if(regExpHyphen.test(elements.id)) {
+                elements.id = elements.id.replace(regExpSignAndLetterAfter, function(string) {
+                    return string = string.replace(regExpHyphen, "").toUpperCase();
+                });
+            }
 
-        // if()
-
-        if(elements.id === 'number-of-games') {
-            // let numberOfGames = statistics;
             statistics++;
-            console.log(statistics);
-            this.stats.numberOfGames = statistics;
+            this.stats[`${elements.id}`] = statistics;
             this.updateStatsText(elements, statistics);
-            return;
-        }
-        if(elements.id == 'draw') {
-            // let draw = statistics;
-            // draw++;
-            statistics++;
-            this.stats.draw =statistics;
-            this.updateStatsText(elements, statistics);
-            // console.log(elements.id);
-            this.result.innerHTML = `Result: You chose ${result.player} | Computer chose ${result.computer} | <span class="draw">Draw!</span>`;
-        }
-        if(elements.id == 'wins') {
-            // let wins = statistics;
-            // wins++;
-            statistics++;
-            this.stats.wins =statistics;
-            this.updateStatsText(elements, statistics);
-            this.result.innerHTML = `Result: You chose ${result.player} | Computer chose ${result.computer} | <span class="win">You win!</span>`;
-        }
-        if(elements.id == 'loses') {
-            // let loses = statistics;
-            // loses++;
-            statistics++;
-            this.stats.loses = statistics;
-            this.updateStatsText(elements, statistics);
-            this.result.innerHTML = `Result: You chose ${result.player} | Computer chose ${result.computer} | <span class="loses">You Lose!</span>`;
+            console.log(elements.id);
+            if(elements.id !== "numberOfGames") {
+                const toUpperCaseFirstLetter = elements.id.charAt(0).toUpperCase() + elements.id.slice(1);
+                this.result.innerHTML = `Result: You chose ${result.player} | Computer chose ${result.computer} | <span class="${elements.id}">You ${toUpperCaseFirstLetter}!</span>`;
+            }
         }
     }
 }
