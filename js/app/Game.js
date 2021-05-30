@@ -18,21 +18,21 @@ class Game {
     startGame() {
         this.gameChoise.computerChoise();
 
-        const {playerChoise, computerChoise} = this.gameChoise.choice;
+        const {playerChoise: player, computerChoise: computer} = this.gameChoise.choice;
 
-        if(!playerChoise) {
+        if(!player) {
             return alert('Select paper, rock or scissors');
         }
         this.display.updateStatistic(this.display.gamesNumber, this.display.stats.numberOfGames);
 
-        if(playerChoise === computerChoise) {
-            this.display.updateStatistic(this.display.draws, this.display.stats.draw, {player: playerChoise, computer: computerChoise});
+        if(player === computer) {
+            this.display.updateStatistic(this.display.draws, this.display.stats.draw, {player, computer});
             return;
         }
-        if(playerChoise == 'paper' && computerChoise == 'rock' || playerChoise == 'rock' && computerChoise == 'scissors' || playerChoise == 'scissors' && computerChoise == 'paper') {
-            this.display.updateStatistic(this.display.wins, this.display.stats.win, {player: playerChoise, computer: computerChoise});
+        if(player == 'paper' && computer == 'rock' || player == 'rock' && computer == 'scissors' || player == 'scissors' && computer == 'paper') {
+            this.display.updateStatistic(this.display.wins, this.display.stats.win, {player, computer});
         } else {
-            this.display.updateStatistic(this.display.loses, this.display.stats.lose, {player: playerChoise, computer: computerChoise});
+            this.display.updateStatistic(this.display.loses, this.display.stats.lose, {player, computer});
         }
     }
 }
