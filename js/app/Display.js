@@ -13,16 +13,10 @@ class Display {
         }
     }
 
-
-    // ? Add?
-    // updateDisplay() {
-
-    // }
-
     updateStatsText(element, statistics, index) {
         const regExpHyphen = /(-)/g;
-        console.log(element);
         let elementAttribute = element.getAttribute('id');
+
         elementAttribute = elementAttribute.charAt(0).toUpperCase() + elementAttribute.slice(1);
 
         if(regExpHyphen.test(elementAttribute)) {
