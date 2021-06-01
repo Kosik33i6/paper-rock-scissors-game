@@ -16,7 +16,7 @@ class Display {
     updateStatsText(element, statistics, index) {
         const regExpHyphen = /(-)/g;
         let elementAttribute = element.getAttribute('id');
-        console.log(elementAttribute);
+
         elementAttribute = elementAttribute.charAt(0).toUpperCase() + elementAttribute.slice(1);
 
         if(regExpHyphen.test(elementAttribute)) {
@@ -37,19 +37,20 @@ class Display {
         } else {
             const regExpSignAndLetterAfter = /(-=?)[a-z]/g;
             const regExpHyphen = /(-)/g;
+            let elementsId = elements.id;
 
             if(regExpHyphen.test(elements.id)) {
-                elements.id = elements.id.replace(regExpSignAndLetterAfter, function(string) {
+                elementsId = elements.id.replace(regExpSignAndLetterAfter, function(string) {
                     return string = string.replace(regExpHyphen, "").toUpperCase();
                 });
             }
+
             statistics++;
-            this.stats[`${elements.id}`] = statistics;
+            this.stats[`${elementsId}`] = statistics;
             this.updateStatsText(elements, statistics);
-            console.log(elements.id);
-            if(elements.id !== "numberOfGames") {
-                const statsFirstLetterUppercase = elements.id.charAt(0).toUpperCase() + elements.id.slice(1);
-                this.result.innerHTML = `Result: You chose ${result.player} | Computer chose ${result.computer} | <span class="${elements.id}">You ${statsFirstLetterUppercase}!</span>`;
+            if(elementsId !== "numberOfGames") {
+                const statsFirstLetterUppercase = elementsId.charAt(0).toUpperCase() + elementsId.slice(1);
+                this.result.innerHTML = `Result: You chose ${result.player} | Computer chose ${result.computer} | <span class="${elementsId}">You ${statsFirstLetterUppercase}!</span>`;
             }
         }
     }
